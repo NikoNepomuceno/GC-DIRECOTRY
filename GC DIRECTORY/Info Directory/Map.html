@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Info Directory/CSS/Map.css">
+    <link rel="icon" type="image/png" href="/Info Directory/Images/GC_LOGO.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Gordon College Directory</title>
+</head>
+
+<body>
+
+    <header id="header">
+        <img class="header-icon" src="/Info Directory/Images/GC_LOGO.png">
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="Main.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Rooms.html">Rooms</a></li>
+                <li><a href="Map.html">Map</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <i class="ri-menu-line"></i>
+        </div>
+    </header>
+
+    <!-- side menu for mobile -->
+
+    <div class="side-menu">
+        <nav>
+            <ul>
+                <li><a href="Main.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Rooms.html">Rooms</a></li>
+                <li><a href="Map.html">Map</a></li>
+            </ul>
+        </nav>
+    </div>
+    <h1>The Map of Gordon College</h1>
+
+    <div class="img-container">
+        <img id="image" src="/Info Directory/Images/First-Floor.png" height="320" width="920">
+    </div>
+
+    <div class="container">
+        <button onClick="changeImage('/Info Directory/Images/FIRST-FLOOR.png')">First Floor</button>
+        <button onClick="changeImage('/Info Directory/Images/2ND-FLOOR.png')">Second Floor</button>
+        <button onClick="changeImage('/Info Directory/Images/3RD-FLOOR.png')">Third Floor</button>
+        <button onClick="changeImage('/Info Directory/Images/4TH-FLOOR.png')">Fourth Floor</button>
+        <button onClick="changeImage('/Info Directory/Images/5TH-FLOOR.png')">Fifth Floor</button>
+        <button onClick="changeImage('/Info Directory/Images/6TH-FLOOR.PNG')">Sixth Floor</button>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

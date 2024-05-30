@@ -1,0 +1,351 @@
+    html {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat;
+        overflow-x: hidden;
+    }
+
+    body {
+        background: url(background.png) no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        height: 110vh;
+        font-family: Montserrat;
+        transition: 0.25s;
+        overflow-y: auto;
+    }
+
+    body.dark {
+        /*     background: #6a9452; */
+        color: white;
+    }
+
+    :root {
+        --cb: cubic-bezier(.05, .61, .41, .95);
+    }
+
+    #header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgb(85, 146, 76);
+        z-index: 1;
+        filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
+        border-bottom: 1px solid transparent;
+    }
+
+    .header-icon {
+        max-width: 80px;
+        margin-top: 3px;
+        padding-left: 50px;
+    }
+
+    .navbar ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 50px;
+        list-style-type: none;
+        gap: 20px;
+        color: white;
+        cursor: pointer;
+        transition: .15s color;
+    }
+
+    .navbar li:hover {
+        color: #fffb2b;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: inherit;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .navbar a.active {
+        background-color: rgba(255, 255, 255, 0.4);
+        color: #76885B;
+    }
+
+    .header-title {
+        color: #fffb2b;
+        margin-left: 50px;
+    }
+
+    .header-title span {
+        color: white;
+    }
+
+    .side-menu {
+        display: none;
+        margin-top: 80px;
+        position: fixed;
+        top: 0;
+        left: -250px;
+        /* Initially hidden */
+        width: 200px;
+        height: 100%;
+        background: rgb(85, 146, 76);
+        z-index: 2;
+        overflow-y: auto;
+        transition: 0.3s;
+    }
+
+    .side-menu.active {
+        left: 0;
+        /* Slide in when active */
+    }
+
+    .side-menu ul {
+        list-style: none;
+        padding: 20px;
+    }
+
+    .side-menu li {
+        margin-bottom: 15px;
+    }
+
+    .side-menu a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+    }
+
+    .side-menu a:hover {
+        color: #fffb17;
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        color: #fff;
+        margin-right: 40px;
+    }
+
+    .hamburger i {
+        font-size: 2rem;
+        color: #fff;
+    }
+
+    /* Navbar Media Queries */
+    @media (max-width: 850px) {
+        .navbar ul {
+            display: none;
+        }
+
+        .navbar ul li {
+            display: none !important;
+        }
+
+        .about img {
+            margin-top: 60px;
+        }
+
+        .hamburger {
+            display: block;
+        }
+
+        .side-menu {
+            display: block;
+        }
+    }
+
+    @media (max-width: 600px) {
+        header .image::before {
+            display: none;
+        }
+    }
+
+    /* Rooms */
+
+    .cards {
+        margin-top: 20px;
+        display: flex;
+        max-width: 850px;
+        width: calc(100% - 100px);
+        height: 500px;
+        animation-name: SlideinTop;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+    }
+
+    @keyframes SlideinTop {
+        from {
+            transform: translateY(70px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    .cards .card .info .title {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .cards .card .label .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 40px;
+        height: 40px;
+        background-color: white;
+        color: var(--color);
+        border-radius: 50%;
+    }
+
+    .cards .card .label .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10px;
+        white-space: pre;
+        transition: 1s var(--cb);
+    }
+
+    .cards .card {
+        position: relative;
+        min-width: 60px;
+        background: var(--bg);
+        overflow: hidden;
+        margin: 5px;
+        background-size: auto 150%;
+        background-position: center;
+        cursor: pointer;
+        transition: 0.5s var(--cb);
+        border-radius: 30px;
+    }
+
+    .cards .card .label {
+        display: flex;
+        position: absolute;
+        right: 0;
+        height: 40px;
+        transition: 0.5s var(--cb);
+    }
+
+    .cards .card .list a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .shadow {
+        margin-bottom: -30px;
+    }
+
+    .cards .card.active .label {
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .cards .card.active {
+        flex-grow: 10000;
+        background-size: auto 100%;
+    }
+
+    .cards .card:not(.active) .label {
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .cards .card .shadow {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(0, #0004, transparent);
+    }
+
+    .cards .card.active .info {
+        opacity: 1;
+    }
+
+    .cards .card:not(.active) .info {
+        opacity: 0;
+    }
+
+    .cards .card .list {
+        display: none;
+    }
+
+    .cards .card.active .list {
+        display: block;
+    }
+
+    .list {
+        padding-left: 15px;
+    }
+
+    .cards {
+        animation-name: SlideinTop;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+    }
+
+    /* New media query for responsive design */
+
+    @media (max-width: 750px) {
+        /* body {
+            overflow-y: inherit;
+        } */
+
+        .card.active {
+            --bg: url(../Images/green.png) no-repeat center center fixed;
+            --bg: url(../Images/yellow.png) no-repeat center center fixed;
+            --bg: url(../Images/blue.png) no-repeat center center fixed;
+            --bg: url(../Images/orange.png) no-repeat center center fixed;
+            --bg: url(../Images/pink.png) no-repeat center center fixed;
+            --bg: url(../Images/red.png) no-repeat center center fixed;
+        }
+
+        .cards {
+            margin-top: 400px;
+            display: block;
+            height: auto;
+        }
+
+        .cards .card {
+            width: 100%;
+            margin: 20px 0;
+            padding-top: 7px;
+        }
+
+        .cards .card:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        .cards .card .label {
+            position: relative;
+            margin-top: 15px;
+        }
+
+        .cards .card .list {
+            padding-left: 0;
+            /* Remove left padding */
+        }
+    }
